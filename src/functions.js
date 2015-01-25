@@ -34,7 +34,7 @@ var barType = typeof bar;
 //your code here
 var doubleArray = [3.00];
 bar = function (doubleArray) {
-  for ( var i = 0; i < doubleArray.length; i++ ) {
+  for (var i = 0; i < doubleArray.length; i++ ) {
     doubleArray[i] = 2 * doubleArray[i];
   }
   
@@ -80,24 +80,18 @@ fu
 */
 
 //your code here
-/*function parseGit(logArray) {
- 
-  var GitLog = [];
-  for (var i = 0; i < logArray.length; i++) {
-    GitLog[i] = GitLog(logArray[i].slice(0,7), logArray[i].slice(8,41), logArray[i].slice(40, logArray.lastIndexOf()));
-  }		
-  return GitLog;
-} */
+
 function parseGit(logArray) {
-  var GitLog = [];
-  for(var i = 0; i < logArray.length; i++) {
+  var GitArr = [];
+  for (var i = 0; i < logArray.length; i++) {
 	
-    GitLog[i] = {
+    GitArr[i] = new GitLog(logArray[i].slice(0,7), new Date(logArray[i].slice(9,38)), 
+	logArray[i].slice(40, logArray.lastIndexOf())); /*{
 	  hash: logArray[i].slice(0,7),
 	  date: new Date(logArray[i].slice(9,38)),
 	  message: logArray[i].slice(40, logArray.lastIndexOf())
-	}
+	}*/
   }		
-  return GitLog;
+  return GitArr;
 } 
 //end your code

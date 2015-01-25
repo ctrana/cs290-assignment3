@@ -10,7 +10,13 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+  return {
+    type: "Goldfish",
+    brand: "Pepperidge Farm",
+    flavor: "Cheddar",
+    count: 2000
+  };
+  //Modify ONLY this line
   //end your code
 }
 
@@ -38,7 +44,28 @@ function returnObjectLiteral() {
 */
 
 //your code here
-
+function MessageLog(user) {
+  this.user = user;
+  this.sentLog = [];
+  this.receivedLog = [];
+  this.logMessage = function (messageText, direction) {
+    if (direction == 0) {
+      this.sentLog[this.sentLog.length] = messageText;
+    }
+    else {
+      this.receivedLog[this.receivedLog.length] = messageText;
+    }
+  };
+  this.getSentMessage = function (n) {
+    return this.sentLog[this.sentLog.length - (n + 1)];
+  };
+  this.totalSent = function () {
+    return this.sentLog.length;
+  };
+  this.totalReceived = function () {
+    return this.receivedLog.length;
+  };
+}
 //end your code
 
 /**
@@ -47,7 +74,9 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
-
+MessageLog.prototype.lastReceivedMessage = function () {
+  return this.receivedLog[this.receivedLog.length - 1];
+};
 //end your code
 
 /**
@@ -57,5 +86,8 @@ function returnObjectLiteral() {
 */
 
 //your code here
-
+this.myLog = new MessageLog('BlackHatGuy');
+this.myLog.logMessage('foo', 1);
+this.myLog.logMessage('bar', 1);
+this.myLog.logMessage('baz', 1);
 //end your code
